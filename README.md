@@ -2,7 +2,7 @@
 This is my python script for staking .fits files.
 
 ## Description
-- __init__.py: An empty file
+- __ init __.py: An empty file
 - maincode.py: Start the file: "StackImg.py"
 - StackImg.py: the main script
   - So far, the section in the code

@@ -291,7 +291,6 @@ def stacking_BDF():
                 time.sleep(1)       
 
 def calibrate_img():
-     """
      #Find master file
      master_img = os.path.join(raw_direc, "**" ,"master" + classfile()[2])
      master_file = glob.glob(master_img, recursive = True)
@@ -476,7 +475,7 @@ def calibrate_img():
          ccd_csi.write(improved_ccd_csi, overwrite = True)
          print("Finish storing {}".format(csi.split("/")[-1].replace("sub","")))
          time.sleep(1)
-"""
+         
      print("Remove subbias...")
      time.sleep(1)
      os.chdir(raw_direc + "/subbias")

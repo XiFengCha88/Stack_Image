@@ -291,6 +291,7 @@ def stacking_BDF():
                 time.sleep(1)       
 
 def calibrate_img():
+     """
      #Find master file
      master_img = os.path.join(raw_direc, "**" ,"master" + classfile()[2])
      master_file = glob.glob(master_img, recursive = True)
@@ -475,17 +476,19 @@ def calibrate_img():
          ccd_csi.write(improved_ccd_csi, overwrite = True)
          print("Finish storing {}".format(csi.split("/")[-1].replace("sub","")))
          time.sleep(1)
- 
-     print("Remove directory: \"subbias\"...")
+"""
+     print("Remove subbias...")
      time.sleep(1)
-     subbias_direc = os.path.join(raw_direc + "/subbias", "**", "*")
-     subbias_thumb = os.path.join(raw_direc + "/subbias", "**", "*.thumbs")
-     subf = glob.glob(subbias_direc, recursive = True)
-     subthumb = glob.glob(subbias_thumb, recursive = True)
+     os.chdir(raw_direc + "/subbias")
+     subf = os.listdir(raw_direc + "/subbias")
+     print(subf) 
      for dsf in subf:
          print("remove {}...".format(dsf.split("/")[-1]))
-         os.remove(dsf.split("/")[-1])
+         os.remove(str(dsf.split("/")[-1]))
+     os.chdir(raw_direc)
+     os.rmdir("subbias")
      print("Already Removed!")
+     
      time.sleep(1)
                
 ### Process End Here So Far###
